@@ -9,6 +9,10 @@ class CatRentalRequest < ApplicationRecord
 
   belongs_to :cat
 
+  belongs_to :requester,
+    class_name: :User,
+    foreign_key: :user_id
+
   after_initialize :assign_pending_status
 
   def approve!

@@ -12,6 +12,12 @@
     <header>
         <% if logged_in? %>
           <h2>Hello, <%= current_user.user_name %>!</h2>
+          <form action="<%= session_url %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Log out">
+          </form>
+        <% else %>
+          <a href="<%= new_session_url %>">Log in</a>
         <% end %>
     </header>
     <%= yield %>
