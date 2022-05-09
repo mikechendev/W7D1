@@ -24,6 +24,7 @@
   </tr>
   <% if !current_user.cats.find(@cat.id).nil? %>
     <% @cat.rental_requests.order('start_date').each do |req| %>
+      <p><%= @cat.requester.user_name %></p>
       <%= render 'req_tr', req: req %>
     <% end %>
   <% end %>
